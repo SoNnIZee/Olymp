@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="card">
+    <div class="row">
+      <h1>Задача #{{ task_id }}</h1>
+      <a class="btn btn--small" href="/ui">Назад</a>
+    </div>
+
+    <div class="task" data-task data-task-id="{{ task_id }}"></div>
+
+    <div class="notice" data-notice hidden></div>
+
+    <form class="form" data-form="submit-answer" data-task-id="{{ task_id }}">
+      <label class="label">
+        Ответ
+        <input class="input" name="answer" required />
+      </label>
+      <button class="btn btn--primary" type="submit">Отправить</button>
+    </form>
+
+  </section>
+{% endblock %}

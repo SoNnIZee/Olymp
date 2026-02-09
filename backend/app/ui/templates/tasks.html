@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="hero">
+    <h1 class="hero__title">Каталог задач</h1>
+    <p class="hero__subtitle">
+      Быстрый MVP: задачи, отправка ответов, статистика, PvP и рейтинг Elo.
+    </p>
+    <div class="hero__actions" data-auth-actions>
+      <a class="btn btn--primary" href="/ui/login" data-auth="guest">Войти</a>
+      <a class="btn" href="/ui/register" data-auth="guest">Регистрация</a>
+      <a class="btn btn--primary" href="/ui/pvp" data-auth="auth">PvP 1-на-1</a>
+    </div>
+  </section>
+
+  <div class="notice" data-notice hidden></div>
+
+  <section class="grid">
+    <div class="card">
+      <div class="row">
+        <h2>Задачи</h2>
+        <button class="btn btn--small" type="button" data-action="load-tasks">Обновить</button>
+      </div>
+      <div class="list" data-tasks></div>
+    </div>
+
+    <div class="card">
+      <div class="row">
+        <h2>Аналитика</h2>
+        <button class="btn btn--small" type="button" data-action="load-analytics">Обновить</button>
+      </div>
+      <div class="stats" data-analytics>
+        <p class="muted">Войдите, чтобы увидеть статистику.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card card--soft">
+    <div class="row">
+      <h2>PvP 1-на-1</h2>
+      <a class="btn btn--primary" href="/ui/pvp">Перейти</a>
+    </div>
+    <p class="muted">Быстрые матчи, рейтинг Elo и честная проверка ответов.</p>
+  </section>
+
+{% endblock %}

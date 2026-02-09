@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="card card--center">
+    <h1>Регистрация</h1>
+    <div class="notice" data-notice hidden></div>
+    <form class="form" data-form="register">
+      <label class="label">
+        Email
+        <input class="input" type="email" name="email" autocomplete="email" required />
+      </label>
+      <label class="label">
+        Username
+        <input class="input" name="username" autocomplete="username" required />
+      </label>
+      <label class="label">
+        Пароль
+        <input class="input" type="password" name="password" autocomplete="new-password" required />
+      </label>
+      <button class="btn btn--primary" type="submit">Создать аккаунт</button>
+    </form>
+
+    <p class="muted">
+      Уже есть аккаунт? <a href="/ui/login">Войти</a>
+    </p>
+
+  </section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="card">
+    <div class="row">
+      <h1>PvP 1-на-1</h1>
+      <div class="pill" data-pvp-status>Не в очереди</div>
+    </div>
+
+    <div class="notice" data-notice hidden></div>
+
+    <div class="pvp">
+      <div class="pvp__left">
+        <div class="row">
+          <button class="btn btn--primary" type="button" data-action="pvp-join">Встать в очередь</button>
+          <button class="btn" type="button" data-action="pvp-leave">Выйти</button>
+        </div>
+
+        <div class="card card--soft">
+          <h2 class="h2">Матч</h2>
+          <div class="muted" data-pvp-match>Ожидание...</div>
+          <div class="muted" data-pvp-round>Раунд: —</div>
+          <div class="task" data-pvp-task></div>
+        </div>
+      </div>
+
+      <div class="pvp__right">
+        <div class="card card--soft">
+          <h2 class="h2">Ответ</h2>
+          <form class="form" data-form="pvp-answer">
+            <label class="label">
+              Ответ
+              <input class="input" name="answer" required />
+            </label>
+            <button class="btn btn--primary" type="submit">Отправить</button>
+          </form>
+          <div class="score" data-pvp-score>Счет: —</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+{% endblock %}
