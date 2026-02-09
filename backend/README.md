@@ -1,33 +1,55 @@
 # Olymp Platform (MVP)
 
-FastAPI + MySQL 8 skeleton for a training platform with:
-- registration + JWT auth
-- tasks catalog + submissions + auto-check (simple)
-- PvP (1v1) via WebSocket + Elo rating (K=32, R0=1000)
-- basic analytics
-- minimal web UI (server-rendered + small JS)
+Каркас платформы для обучения на FastAPI + MySQL 8, включающий:
 
-## Quick start (Docker MySQL)
-1. Start MySQL:
-   - `docker compose up -d`
-2. Set up backend:
-   - `cd backend`
-   - `python -m venv .venv`
-   - `./.venv/Scripts/pip install -r requirements.txt`
-   - copy `.env.example` to `.env` and adjust `APP_DATABASE_URL`
-3. Run the API/UI:
-   - `./.venv/Scripts/python -m uvicorn app.main:app --reload --port 8000`
-4. Create an admin user (optional):
-   - `./.venv/Scripts/python scripts/bootstrap_admin.py --email admin@example.com --username admin --password admin`
+регистрацию и JWT-аутентификацию
 
-If you don't use Docker, initialize DB tables:
-- `./.venv/Scripts/python scripts/init_db.py`
-- `./.venv/Scripts/python scripts/seed_tasks.py`
+каталог заданий, отправку решений и простую автоматическую проверку
 
-Open:
-- UI: `http://localhost:8000/ui`
-- API docs: `http://localhost:8000/docs`
+PvP (1 на 1) через WebSocket + рейтинг Elo (K = 32, R0 = 1000)
 
-## Notes
-- PvP matchmaking and active matches are in-memory for MVP (single process). For production, move state to Redis.
-- Auto-check is intentionally simple (string/int/float). Extend with custom checkers as needed.
+базовую аналитику
+
+минимальный веб-интерфейс (серверный рендеринг + немного JS)
+
+Быстрый старт (MySQL в Docker)
+
+Запустите MySQL:
+
+docker compose up -d
+
+Настройте бэкенд:
+
+cd backend
+
+python -m venv .venv
+
+./.venv/Scripts/pip install -r requirements.txt
+
+скопируйте .env.example в .env и отредактируйте APP_DATABASE_URL
+
+Запустите API и UI:
+
+./.venv/Scripts/python -m uvicorn app.main:app --reload --port 8000
+
+Создайте администратора (необязательно):
+
+./.venv/Scripts/python scripts/bootstrap_admin.py --email admin@example.com --username admin --password admin
+
+Если вы не используете Docker, инициализируйте таблицы базы данных:
+
+./.venv/Scripts/python scripts/init_db.py
+
+./.venv/Scripts/python scripts/seed_tasks.py
+
+Открыть:
+
+UI: http://localhost:8000/ui
+
+Документация API: http://localhost:8000/docs
+
+Примечания
+
+Подбор PvP-матчей и активные игры хранятся в памяти приложения (MVP, один процесс). Для продакшена состояние следует вынести в Redis.
+
+Автоматическая проверка решений намеренно упрощена (строки / целые / вещественные числа). При необходимости её можно расширить собственными проверяющими модулями.
